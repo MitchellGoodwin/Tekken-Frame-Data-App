@@ -31,19 +31,19 @@ A user can read other posts
 
 My beginning plan is to: 
 
-* create the models above, with help from an api for characters and moves.
+* create the models above, with help from an api for characters and moves. X
 
 * Add a show page for users, with a bio they can add
 
-* Make a basic character index page with links
+* Make a basic character index page with links X
 
-* Make character show pages with moves below each character
+* Make character show pages with moves below each character X
 
-* Create basic forum show and index pages
+* Create basic forum show and index pages X
 
-* Make posts for the forum pages, with full crud functionality
+* Make posts for the forum pages, with full crud functionality X
 
-* Add log-in, log-out, and sign-up functions and pages for users
+* Add log-in, log-out, and sign-up functions and pages for users X
 
 ## Stretch Goals
 

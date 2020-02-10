@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_174105) do
+ActiveRecord::Schema.define(version: 2020_02_09_213145) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2020_02_07_174105) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
+    t.integer "user_id"
+    t.integer "forum_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_02_07_174105) do
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "bio"
   end
 
 end

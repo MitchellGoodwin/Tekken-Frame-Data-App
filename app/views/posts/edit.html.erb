@@ -1,0 +1,14 @@
+<%= form_for @post do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+<% end %>
+<%= button_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+
+<% if @post.errors.any? %>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>

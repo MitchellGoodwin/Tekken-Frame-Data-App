@@ -1,0 +1,27 @@
+<h1><%= @character.proper_name %></h1><br>
+<%= link_to "Link to Forum", forum_path(@character.forum) %><br><br>
+<table>
+    <tr>
+        <th>Command</th>
+        <th>Hit Level</th>
+        <th>Damage</th>
+        <th>Startup</th>
+        <th>Block</th>
+        <th>Hit</th>
+        <th>CounterHit</th>
+        <th>Notes</th>
+    </tr>
+
+    <% @character.moves.each do |move| %>
+    <tr>
+        <td><%= move.command %></td>
+        <td><%= move.level %></td>
+        <td><%= move.damage %></td>
+        <td><%= move.startup %></td>
+        <td><%= move.block %></td>
+        <td><%= move.hit %></td>
+        <td><%= move.ch %></td>
+        <td><%= move.notes %></td>
+    </tr>
+    <% end %>
+</table>

@@ -8,13 +8,47 @@
 
 require 'rest-client'
 require 'json'
+require 'pry'
+User.destroy_all
+Character.destroy_all
 
-20.times do
+puts "Making Users"
+
+40.times do
     User.create(username: Faker::Internet.username, password: "test", location: Faker::Nation.capital_city, picture_link: Faker::Avatar.image)
 end
 
 
-
+puts "Getting API data"
 response = RestClient.get("https://t7frames-server.herokuapp.com/frame-data/")
 
-tekken = JSON.parse(response.body)
+tekken = JSON.parse(response)
+
+puts "Making characters and moves..."
+
+tekken.each do |key, character|
+    ch = Character.create(name: character["character"])
+    character["moves"].each do |move|
+        nm = Move.create(move.transform_keys! &:downcase)
+        nm.character_id = ch.id
+        nm.save
+    end
+end
+
+puts "Making forums"
+
+Character.all.each do |character|
+    Forum.create(character_id: character.id)
+end
+
+puts "Making posts"
+
+150.times do
+    Post.create(user_id: User.all.sample.id, forum_id: Forum.all.sample.id, content: Faker::Lorem.paragraph)
+end
+
+
+
+puts "Done seeding"
+
+

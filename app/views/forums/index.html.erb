@@ -1,0 +1,3 @@
+<% @forums.each do |forum| %>
+    <%= link_to "#{forum.character_name}'s Forum", forum_path(forum) %>
+<% end %>

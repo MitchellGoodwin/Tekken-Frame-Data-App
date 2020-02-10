@@ -1,0 +1,14 @@
+<% if @user.picture_link%>
+    <%= image_tag(@user.picture_link) %><br>
+<% else %>
+    <%= image_tag("//style.anu.edu.au/_anu/4/images/placeholders/person.png") %><br>
+<% end %>
+<h3><%= @user.username %></h3>
+<p><%= @user.location %></p><br><br>
+<% if @user.bio%>
+    <h4>Bio:</h4>
+    <p><%= @user.bio %><p><br><br>
+<% end %>
+<% if @user == current_user %>
+    <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
+<% end %>
