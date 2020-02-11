@@ -11,7 +11,7 @@ class Post < ApplicationRecord
 
 
     def user_pic
-        self.user.picture_link
+        self.user.pic
     end
 
     def user_location

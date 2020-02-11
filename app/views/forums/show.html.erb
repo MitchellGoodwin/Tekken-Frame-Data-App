@@ -1,6 +1,6 @@
 <h1><%= @forum.character_name %></h1>
 <% @forum.posts.last(5).each do |post| %>
-    <%= image_tag(post.pic) %><br>
+    <%= image_tag(post.user_pic) %><br>
     <%= link_to post.username, user_path(post.user) %><br>
     <p><%= "Location: #{post.user_location}" %></p><br><br>
     <p><%= post.content %></p><br>
@@ -11,6 +11,37 @@
 <% end %>
 <br>
 
+<% @forum.posts.last(2).each do |post| %>
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-128x128">
+      <%= image_tag(post.user_pic) %>
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong><%=post.username%></strong>
+        <br>
+        <%= post.content%>
+      </p>
+    </div>
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <a class="level-item">
+          <p><%= "Created at: #{post.created_at}" %></p>
+        </a>
+      </div>
+    </nav>
+  </div>
+  <div class="media-right">
+    <% if post.user == current_user %>
+        <%= link_to "Edit Post", edit_post_path(post), :class => "button has-background-danger is-outlined is-focused" %>
+    <% end %>
+  </div>
+</article>
+<% end %>
+<br>
 <% if logged_in?%>
 <h1> Make New Post</h1>
     <%= form_for @post do |f| %>
