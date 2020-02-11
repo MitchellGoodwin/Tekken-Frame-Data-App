@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
   
-  resources :posts
-  resources :forums
-  resources :characters
-  resources :users
+  resources :posts, only: [:edit, :create, :update, :destroy]
+  resources :forums, only: [:index, :show]
+  resources :characters, only: [:show, :index]
+  resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :favorites, only: [:create, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

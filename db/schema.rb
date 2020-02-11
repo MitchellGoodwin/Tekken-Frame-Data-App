@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_205626) do
+ActiveRecord::Schema.define(version: 2020_02_11_205454) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2020_02_10_205626) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "bio"
     t.string "image_url"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "character_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_favorites_on_character_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "forums", force: :cascade do |t|
@@ -58,4 +67,6 @@ ActiveRecord::Schema.define(version: 2020_02_10_205626) do
     t.text "bio"
   end
 
+  add_foreign_key "favorites", "characters"
+  add_foreign_key "favorites", "users"
 end

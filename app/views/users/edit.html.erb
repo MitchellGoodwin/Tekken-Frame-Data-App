@@ -11,26 +11,26 @@
 
 <%= form_for @user do |f| %>
     <div class="field">
-      <label class="label">Username</label>
+      <label class="label has-text-light">Username:</label>
       <div class="control">
          <input class="input" type="text" name="username" value=<%= @user.username %>>
       </div>
     </div>
     <div class="field">
-      <label class="label">Location</label>
+      <label class="label has-text-light">Location:</label>
       <div class="control">
          <input class="input" type="text" name="location" value=<%= @user.location %>>
       </div>
     </div>
     <div class="field">
-      <label class="label">Avatar Image Link:</label>
+      <label class="label has-text-light">Avatar Image Link:</label>
       <div class="control">
          <input class="input" type="text" name="picture_link" value=<%= @user.pic  %>>
       </div>
     </div>
     <div class="field">
       <p class="control">
-      <label class="label">Bio:</label>
+      <label class="label has-text-light">Bio:</label>
         <textarea class="textarea" name="bio" ><%= @user.bio %></textarea>
       </p>
     </div>

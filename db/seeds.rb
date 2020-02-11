@@ -35,6 +35,15 @@ tekken.each do |key, character|
     end
 end
 
+puts "Adding Favorites"
+
+User.all.each do |user|
+    x = rand(1..4)
+    x.times do
+        Favorite.create(user: user, character: Character.all.sample)
+    end
+end
+
 puts "Making forums"
 
 Character.all.each do |character|

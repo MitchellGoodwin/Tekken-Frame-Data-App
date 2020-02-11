@@ -39,7 +39,11 @@
       <div class="content">
         <p class="title">Favorite Characters:</p>
         <div class="content">
-
+          <div class="buttons">
+            <% @user.characters.each do |character| %>
+              <%= link_to character.proper_name, character_path(character), :class => "button has-background-danger is-outlined is-focused is-fullwidth" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </article>

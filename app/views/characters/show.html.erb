@@ -14,6 +14,14 @@
         <div class="level-item">
             <div class="buttons">
                 <%= link_to "Link to Forum", forum_path(@character.forum), :class => "button has-background-danger is-outlined is-focused" %>
+                <% if logged_in? %>
+                    <% if current_user.characters.include?(@character)%>
+                        <% @favorite = Favorite.find_by(user: current_user, character: @character)%>
+                        <%= link_to "Unfavorite", favorite_path(@favorite), method: :delete, data: {confirm: "Are you sure?"}, :class => "button has-background-danger is-outlined is-focused is-pulled-right" %>
+                    <% else %>
+                        <%= link_to "Favorite", favorites_path, method: :post, :class => "button has-background-danger is-outlined is-focused is-pulled-right" %>
+                    <% end %>
+                <% end %>
             </div>
         </div>
     </div>
