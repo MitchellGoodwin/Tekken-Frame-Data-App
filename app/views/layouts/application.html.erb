@@ -4,12 +4,49 @@
     <title>TekkenFrameDataApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+   <header class="header">
+  <div class="container">
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <%= link_to("Character", characters_path, :class => "button has-background-danger is-outlined") %>
+          <%= link_to("Forums", forums_path, :class => "button has-background-danger is-outlined") %>
+        </div>
+      </div>
+      <div class="level-item" id="imageHeader">
+        <figure class="image is-256x256" id="tekken">
+          <img src="https://ksassets.timeincuk.net/wp/uploads/sites/54/2016/06/tekken-7-logo-1-920x518.png">
+        </figure>
+      </div>
+      <div class="level-right">
+        <p class="level-item">
+        <% if logged_in? %>
+          <%= link_to("Profile Page", user_path(current_user), :class => "button has-background-danger is-outlined") %>
+          <%= button_to "Log Out", logout_path, action: "delete" , :class => "button has-background-danger is-outlined"%>
+        <% else %>
+          <%= link_to("Log In", login_path, :class => "button has-background-danger is-outlined") %>
+          <%= link_to("Sign Up", new_user_path, :class => "button has-background-danger is-outlined") %>
+        <% end %>
+        </p>
+      </div>
+    </nav>
+  </div>
+</header>
+<section class="section">
+  <div class="container">
     <%= yield %>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    Made by Mitch
+  </div>
+</footer>
   </body>
 </html>

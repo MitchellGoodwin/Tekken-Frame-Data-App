@@ -1,6 +1,13 @@
-<h1><%= @character.proper_name %></h1><br>
-<%= link_to "Link to Forum", forum_path(@character.forum) %><br><br>
-<table>
+<div class="topper">
+    <figure class="image is-128x128 " id="characterImage">
+        <%= image_tag(@character.image_url) %>
+    </figure>
+    <div class="box has-text-danger has-background-black-bis">
+        <h1><%= @character.proper_name%></h1>
+    </div>
+    <%= link_to "Link to Forum", forum_path(@character.forum), :class => "button has-background-danger is-outlined is-focused" %>
+</div>
+<table class="table is-hoverable is-bordered is-striped">
     <tr>
         <th>Command</th>
         <th>Hit Level</th>

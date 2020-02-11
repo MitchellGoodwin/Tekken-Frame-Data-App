@@ -1,3 +1,51 @@
 // Place all the styles related to the Characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+table,
+td {
+    border: 1px solid #333;
+    // background-color: #f62828;
+}
+
+table{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    
+    th {
+        background-color: #4CAF50;
+        color: white;
+      }
+}
+.CharacterIndex {
+    display:flex;
+    flex: 0 0 33.333333%;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    height:100vh;
+    .characterImage{
+        height: 100%;
+        width: 192px;
+      }
+  }
+
+// .characterImage{
+//     display:flex;
+//     height: 100%;
+//     width: 192px;
+//   }
+
+  .columns {
+    display:flex;
+    flex: 0 0 33.333333%;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    // height:100vh;
+  }
+
+.topper {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    color: #f62828;
+}

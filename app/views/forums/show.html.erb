@@ -1,10 +1,6 @@
 <h1><%= @forum.character_name %></h1>
 <% @forum.posts.last(5).each do |post| %>
-    <% if post.user_pic %>
-        <%= image_tag(post.user_pic) %><br>
-    <% else %>
-        <%= image_tag("//style.anu.edu.au/_anu/4/images/placeholders/person.png") %><br>
-    <% end %>    
+    <%= image_tag(post.pic) %><br>
     <%= link_to post.username, user_path(post.user) %><br>
     <p><%= "Location: #{post.user_location}" %></p><br><br>
     <p><%= post.content %></p><br>
