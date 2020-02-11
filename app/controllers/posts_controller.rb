@@ -2,12 +2,12 @@ class PostsController < ApplicationController
     before_action :set_post, only: [:destroy, :edit, :update]
 
     def create
-        @post = Post.new(post_params)
+        @post = Post.new(new_post_params)
         @post.user = current_user
         if @post.save
-            redirect_to forum_path(params[:post][:forum_id])
+            redirect_to forum_path(params[:forum_id])
         else
-            render forum_path(params[:post][:forum_id])
+            render forum_path(params[:forum_id])
         end
     end
 
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     end
 
     def update
-        if @post.update(post_params)
+        if @post.update(new_post_params)
             redirect_to session.delete(:return_to)
         else
             render :edit
@@ -31,8 +31,8 @@ class PostsController < ApplicationController
 
     private
 
-    def post_params
-        params.require(:post).permit(:content, :forum_id)
+    def new_post_params
+        params.permit(:content, :forum_id)
     end
 
     private

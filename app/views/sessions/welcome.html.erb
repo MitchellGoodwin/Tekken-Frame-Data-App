@@ -1,8 +1,20 @@
-<h1>Welcome!</h1>
-<% if logged_in? %>
-    <h1>You are Logged In, <%= current_user.username %></h1>
-    <%= button_to "Log Out", logout_path, action: "delete" %>
-<% else %>
-    <%= button_to "Log In", login_path, method: "get" %>
-    <%= button_to "Sign Up", new_user_path, method: "get" %>
-<% end %>
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container" id="NoBackground">
+      <h1 class="title">
+        Welcome to TekkenBooks
+      </h1>
+      <% if logged_in? %>
+        <h2 class="subtitle">
+            You are Logged In, <%= current_user.username %><br>
+            <%= button_to "Log Out", logout_path, action: "delete", :class => "button has-background-danger is-outlined is-focused" %>
+        </h2>
+      <% else %>
+        <h2 class="buttons">
+            <%= link_to "Log In", login_path, method: "get", :class => "button has-background-danger is-outlined is-focused" %>
+            <%= link_to "Sign Up", new_user_path, method: "get", :class => "button has-background-danger is-outlined is-focused" %>
+        </h2>
+      <% end %>
+    </div>
+  </div>
+</section>

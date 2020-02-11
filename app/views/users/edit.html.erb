@@ -1,5 +1,45 @@
-<h1>Edit User Form:</h1>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-background-warning is-bold">
+        Edit User Form
+      </h1>
+    </div>
+  </div>
+</section>
 
+
+<%= form_for @user do |f| %>
+    <div class="field">
+      <label class="label">Username</label>
+      <div class="control">
+         <input class="input" type="text" name="username" value=<%= @user.username %>>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Location</label>
+      <div class="control">
+         <input class="input" type="text" name="location" value=<%= @user.location %>>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Avatar Image Link:</label>
+      <div class="control">
+         <input class="input" type="text" name="picture_link" value=<%= @user.pic  %>>
+      </div>
+    </div>
+    <div class="field">
+      <p class="control">
+      <label class="label">Bio:</label>
+        <textarea class="textarea" name="bio" ><%= @user.bio %></textarea>
+      </p>
+    </div>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <div class="buttons">
+        <input type="submit" value="Submit" class="button is-danger is-outlined is-focused"><br>
+        <%# <%= link_to "Delete Account", user_path(@user), method: :delete, data: {confirm: "Are you sure?"}, :class => "button has-background-danger is-outlined is-focused is-pulled-right" %> 
+    </div>
+<% end %>
 
 <% if @user.errors.any? %>
     <ul>
@@ -7,19 +47,4 @@
         <li><%= msg %></li>
     <% end %>
     </ul>
-<% end %>
-
-
-<%= form_for @user do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
-    <%= f.label :password %>
-    <%= f.text_field :password %><br>
-    <%= f.label :location %>
-    <%= f.text_field :location %><br>
-    <%= f.label "Avatar Image Link" %>
-    <%= f.text_field :picture_link %><br>
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-    <%= f.submit "Edit User" %>
 <% end %>

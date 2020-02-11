@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     end
 
     def new
+        session[:return_to] ||= request.referer
         @user = User.new
     end
 
@@ -13,15 +14,16 @@ class SessionsController < ApplicationController
         if User.exists?(user_params)
             @user = User.find_by(user_params)
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to session.delete(:return_to)
         else
             render :new
         end
     end
 
     def destroy
+        session[:return_to] ||= request.referer
         session.delete :user_id
-        redirect_to root_path
+        redirect_to session.delete(:return_to)
     end
 
     private

@@ -1,14 +1,47 @@
-<% if @user.picture_link%>
-    <%= image_tag(@user.picture_link) %><br>
-<% else %>
-    <%= image_tag("//style.anu.edu.au/_anu/4/images/placeholders/person.png") %><br>
-<% end %>
-<h3><%= @user.username %></h3>
-<p><%= @user.location %></p><br><br>
-<% if @user.bio%>
-    <h4>Bio:</h4>
-    <p><%= @user.bio %><p><br><br>
-<% end %>
-<% if @user == current_user %>
-    <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
-<% end %>
+
+
+<div class="tile is-ancestor has-background-black">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-success">
+          <p class="title"><%= @user.username %></p>
+          <% if @user == current_user %>
+            <%= button_to "Edit Profile", edit_user_path(@user), method: :get, :class => "button has-background-danger is-outlined is-focused" %>
+            <% end %>
+        </article>
+        <article class="tile is-child notification is-warning">
+          <p class="title">Location</p>
+          <p class="subtitle"><%= @user.location %></p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+          <%# <p class="title">Middle tile</p> %>
+          <%# <p class="subtitle">With an image</p> %>
+          <figure class="image" id="ProfileImage">
+            <%= image_tag(@user.pic) %>
+          </figure>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-danger">
+        <p class="title">Bio:</p>
+        <div class="content">
+          <%= @user.bio %>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-success">
+      <div class="content">
+        <p class="title">Favorite Characters:</p>
+        <div class="content">
+
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

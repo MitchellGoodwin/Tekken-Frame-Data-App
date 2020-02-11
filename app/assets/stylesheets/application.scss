@@ -14,7 +14,7 @@
  *= require_self
  */
  @import "bulma";
-//  @import "bulma-extensions";
+
 
 html {
   margin: 0px;
@@ -41,33 +41,21 @@ div#imageHeader{
   height: 187px;
   }
 }
-// .figure#tekken{
-//   width: 442.5px;
-//   height: 249px;
-// }
+
 
 .section {
   display:flex;
   flex: 1 1 auto;
   background-image: url(https://lh3.googleusercontent.com/proxy/IplA199nJksp9vyeWGfkcRNA-Ceb7QoNirXs0wnbVLpPycwhjwWKTyeVMGvZsyQ5tNiTuV7jay9vkQOz-17AG9T2ypQoUJGf2K9at5Pg-SR3lHpDFRV7jSky56Mpv0Ayi5fZz2NwDVZ4HdCV5FgBigV1YirByB7kTG0UAA);
   .container {
-    // display:flex;
     flex:1;
-    background-color:$grey;
-    // margin-top: -48px;
-    // margin-bottom: -48px;
-    // padding-left:100px;
-    // padding-right:100px;
-    // padding-bottom: 100px;
+    background-color: purple;
     margin-left: 100px;
     margin-right: 100px;
     color:$white;
-    // width: 70%;
     height:100%;
   }
   
-  // padding-left:100px;
-  // padding-right:100px;
 }
 
 
@@ -75,4 +63,8 @@ div#imageHeader{
 .footer {
   display:flex;
   align-items: flex-end;
+}
+
+#NoBackground {
+  background:none;
 }

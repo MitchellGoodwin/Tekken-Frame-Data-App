@@ -1,3 +1,37 @@
 // Place all the styles related to the Forums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+#Profile {
+    border-style: solid;
+    border-color: white;
+    height: 100%;
+}
+
+#ContentBox {
+    border-style: solid;
+    border-color: white;
+    height: 158px;
+}
+
+#IndexBox {
+    border-style: solid;
+    border-color: white;
+    height: 174px;
+}
+
+#BigLetters {
+    color: purple;
+}
+
+#PostFooter {
+    display: flex;
+    margin-top: auto;
+}
+
+#Box {
+    border-style: solid;
+    border-color: white;
+    height: 174px;
+}

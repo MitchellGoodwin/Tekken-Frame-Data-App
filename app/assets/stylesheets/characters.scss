@@ -9,13 +9,9 @@ td {
 
 table{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 10px;
     
-    th {
-        background-color: #4CAF50;
-        color: white;
-      }
 }
 .CharacterIndex {
     display:flex;
@@ -29,11 +25,11 @@ table{
       }
   }
 
-// .characterImage{
-//     display:flex;
-//     height: 100%;
-//     width: 192px;
-//   }
+#Image{
+    display:flex;
+    height: 128px;
+    width: 128px;
+  }
 
   .columns {
     display:flex;

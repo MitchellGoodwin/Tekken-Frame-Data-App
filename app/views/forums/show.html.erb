@@ -1,27 +1,25 @@
-<h1><%= @forum.character_name %></h1>
-<% @forum.posts.last(5).each do |post| %>
-    <%= image_tag(post.user_pic) %><br>
-    <%= link_to post.username, user_path(post.user) %><br>
-    <p><%= "Location: #{post.user_location}" %></p><br><br>
-    <p><%= post.content %></p><br>
-    <p><%= "Created at: #{post.created_at}" %></p>
-    <% if post.user == current_user %>
-        <%= button_to "Edit Post", edit_post_path(post), method: :get %>
-    <% end %>
-<% end %>
-<br>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-background-warning is-bold">
+        <%= @forum.character_name %>
+      </h1>
+    </div>
+  </div>
+</section>
 
-<% @forum.posts.last(2).each do |post| %>
-<article class="media">
-  <figure class="media-left">
-    <p class="image is-128x128">
+<% @forum.posts.last(10).each do |post| %>
+<article class="media has-text-white has-background-black is-paddingless is-marginless">
+  <figure class="media-left is-paddingless is-marginless" id="Profile">
+    <p class="image" id="Image">
       <%= image_tag(post.user_pic) %>
     </p>
+    <p><%= "Location: #{post.user_location}" %>
   </figure>
-  <div class="media-content">
+  <div class="media-content is-marginless" id="ContentBox">
     <div class="content">
       <p>
-        <strong><%=post.username%></strong>
+        <strong id="username"><%=link_to post.username, user_path(post.user)%></strong>
         <br>
         <%= post.content%>
       </p>
@@ -29,7 +27,7 @@
     <nav class="level is-mobile">
       <div class="level-left">
         <a class="level-item">
-          <p><%= "Created at: #{post.created_at}" %></p>
+          <p><%= "Created on: #{post.created_at.strftime("%m/%d/%Y at %I:%M%p")}" %></p>
         </a>
       </div>
     </nav>
@@ -41,15 +39,40 @@
   </div>
 </article>
 <% end %>
-<br>
 <% if logged_in?%>
-<h1> Make New Post</h1>
-    <%= form_for @post do |f| %>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-    <%= f.hidden_field :forum_id, :value => @forum.id %>
-    <%= f.submit  %>
-    <% end %>
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-128x128">
+      <%= image_tag(current_user.pic) %>
+    </p>
+  </figure>
+  <div class="media-content">
+  <form action="/posts" method="post">
+    <div class="field">
+      <p class="control">
+        <textarea class="textarea has-text-white has-background-black" name="content" placeholder="Make a post..."></textarea>
+      </p>
+    </div>
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item">
+            <%= hidden_field_tag :forum_id, @forum.id %>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+          <input type="submit" value="Submit" class="button is-danger">
+        </div>
+      </div>
+    </nav>
+  </form>
+  </div>
+</article>
 <% else %>
-    <h3>Log In to Make a Post</h3>
+    <section class="hero is-success">
+        <div class="hero-body">
+            <div class="container">
+            <h1 class="title has-background-success is-bold">
+                <%= "Log in to make a post" %>
+            </h1>
+            </div>
+        </div>
+    </section>
 <% end %>

@@ -1,34 +1,47 @@
-<div class="topper">
-    <figure class="image is-128x128 " id="characterImage">
-        <%= image_tag(@character.image_url) %>
-    </figure>
-    <div class="box has-text-danger has-background-black-bis">
-        <h1><%= @character.proper_name%></h1>
-    </div>
-    <%= link_to "Link to Forum", forum_path(@character.forum), :class => "button has-background-danger is-outlined is-focused" %>
-</div>
-<table class="table is-hoverable is-bordered is-striped">
-    <tr>
-        <th>Command</th>
-        <th>Hit Level</th>
-        <th>Damage</th>
-        <th>Startup</th>
-        <th>Block</th>
-        <th>Hit</th>
-        <th>CounterHit</th>
-        <th>Notes</th>
-    </tr>
 
-    <% @character.moves.each do |move| %>
-    <tr>
-        <td><%= move.command %></td>
-        <td><%= move.level %></td>
-        <td><%= move.damage %></td>
-        <td><%= move.startup %></td>
-        <td><%= move.block %></td>
-        <td><%= move.hit %></td>
-        <td><%= move.ch %></td>
-        <td><%= move.notes %></td>
-    </tr>
-    <% end %>
-</table>
+<nav class="level has-background-black-bis">
+    <div class="level-left">
+        <div class="level-item">
+            <h1 class="box has-text-danger has-background-warning"><%= @character.proper_name%></h1>
+        </div>
+    </div>
+    <div class="level-item">
+            <figure id="Image">
+                <%= image_tag(@character.image_url) %>
+            </figure>
+    </div>
+    <div class="level-right">
+        <div class="level-item">
+            <div class="buttons">
+                <%= link_to "Link to Forum", forum_path(@character.forum), :class => "button has-background-danger is-outlined is-focused" %>
+            </div>
+        </div>
+    </div>
+</nav>
+<div>
+    <table class="table is-hoverable is-bordered has-background-danger is-paddingless is-marginless">
+        <tr>
+            <th>Command</th>
+            <th>Hit Level</th>
+            <th>Damage</th>
+            <th>Startup</th>
+            <th>Block</th>
+            <th>Hit</th>
+            <th>CounterHit</th>
+            <th>Notes</th>
+        </tr>
+
+        <% @character.moves.each do |move| %>
+        <tr>
+            <td><%= move.command %></td>
+            <td><%= move.level %></td>
+            <td><%= move.damage %></td>
+            <td><%= move.startup %></td>
+            <td><%= move.block %></td>
+            <td><%= move.hit %></td>
+            <td><%= move.ch %></td>
+            <td><%= move.notes %></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

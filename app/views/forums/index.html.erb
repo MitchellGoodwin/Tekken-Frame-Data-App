@@ -1,3 +1,40 @@
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container" id="NoBackground">
+      <h1 class="title">
+        Forum Index
+      </h1>
+      <h2 class="subtitle">
+        With links to each forum
+      </h2>
+    </div>
+  </div>
+</section>
+
+
 <% @forums.each do |forum| %>
-    <%= link_to "#{forum.character_name}'s Forum", forum_path(forum) %>
+    <article class="media has-text-white has-background-black is-paddingless is-marginless">
+        <figure class="media-left is-paddingless is-marginless" id="Profile">
+            <figure id="Image">
+                <%= image_tag(forum.character.image_url) %>
+            </figure>
+            <%= link_to "To Forum", forum_path(forum), :class => "button has-background-danger is-outlined is-focused is-fullwidth" %>
+        </figure>
+            <div class="media-content is-marginless is-paddingless" id="IndexBox">
+                <div class="content">
+                    <p>
+                        <strong id="BigLetters">Last Post:</strong>
+                        <br>
+                        <%= forum.content%>
+                    </p>
+                    <div id="PostFooter"><%= forum.last_post_time %></div>
+                    </div>
+                </div>
+            <div class="media-right is-marginless is-paddingless" id="Box">
+                <p class="image" id="Image">
+                    <%= image_tag(forum.last_user_pic) %>
+                </p>
+                <p><%= forum.last_user_name %></p>
+            </div>
+        </article>
 <% end %>
