@@ -25,3 +25,18 @@
    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
    <input type="submit" value="Submit" class="button is-danger">
 </form>
+
+<% if flash[:error] %>
+  <section class="hero is-danger">
+    <div class="hero-body">
+      <div class="container" id="NoBackground">
+        <h1 class="title">
+          Error:
+        </h1>
+        <h2 class="subtitle">
+          <%= flash[:error] %>
+        </h2>
+      </div>
+    </div>
+  </section>
+<% end %>

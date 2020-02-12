@@ -76,3 +76,21 @@
         </div>
     </section>
 <% end %>
+<% if @post.errors.any? %>
+  <section class="hero is-danger">
+    <div class="hero-body">
+      <div class="container" id="NoBackground">
+        <h1 class="title">
+          Error:
+        </h1>
+        <h2 class="subtitle">
+          <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </h2>
+      </div>
+    </div>
+  </section>
+<% end %>

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     end
 
     def new
+        return head(:forbidden) unless logged_in? == false
         @user = User.new
     end
 
