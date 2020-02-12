@@ -11,12 +11,16 @@ class Forum < ApplicationRecord
         posts.last
     end
 
+    def last_user 
+        last_post.user
+    end
+
     def last_user_pic
-        last_post.user.pic
+        last_user.pic
     end
 
     def last_user_name
-        last_post.user.username
+        last_user.username
     end
 
     def last_post_time

@@ -6,16 +6,16 @@ class Post < ApplicationRecord
 
 
     def username
-        self.user.username
+        user.username
     end
 
 
     def user_pic
-        self.user.pic
+        user.pic
     end
 
     def user_location
-        self.user.location
+        user.location
     end
 
     def last_edit
