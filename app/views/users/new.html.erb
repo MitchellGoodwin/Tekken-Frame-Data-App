@@ -28,9 +28,20 @@
 <% end %>
 
 <% if @user.errors.any? %>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-    </ul>
+  <section class="hero is-danger">
+    <div class="hero-body">
+      <div class="container" id="NoBackground">
+        <h1 class="title">
+          Error:
+        </h1>
+        <h2 class="subtitle">
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </h2>
+      </div>
+    </div>
+  </section>
 <% end %>

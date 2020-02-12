@@ -49,13 +49,20 @@ My basic user stories are:
 
 ## Walkthrough of Site Functionality:
 
-The homepage for the app shows a welcome message, as well as login and signup buttons. The user can use either one to login, the signup will make a new user class for that user. After login, the site will redirect back to the page the user was on before. When seeing the home page while logged in, the user will see a message to them and a logout buttons.
+The homepage for the app shows a welcome message, as well as login and signup buttons. The user can use either one to login, the signup will make a new user class for that user. A user must have a username and password to sign up. After login, the site will redirect back to the page the user was on before. When seeing the home page while logged in, the user will see a message to them and a logout buttons.
 
 At the top of the page, on the layout, there will always be buttons to the home page, character index page, and forum index pages. There are also login, signup, logout, and profile page buttons for the user depending on if they are logged in or not.
 
 The character index page has all the characters images laid out in a grid, with buttons with their names on it that are links to that individual character's show page.
 
-The individual character's show page 
+The individual character's show page has all of the character's moves listed in table form. Each move has the right real world properties pulled from an API. At the top of the page their is a link to the character's forum, and, if the user is logged in, a button to either favorite or unfavorite a character.
+
+The forum index page has all of the forums listed in lines. Each line has a link to that forum, as well as the latest post in that forum.
+
+For the forum show pages, it displays the last ten posts made on that forum. If the user is logged in, the page has a form to make a new post on that forum at the bottom. A post cannot have more than 500 characters. If the logged in user has any posts on that page, they have a button to the right of that post to go to an edit form for that post.
+
+On an individual user's profile page it shows their picture, their username, their location, and their bio. It also has a list of all of their favorite characters, with links to that character's show page. If the user for that page is the currently logged in user, there will also be a button to go to an edit form for the user.
+
 
 ## Stretch Goals
 
