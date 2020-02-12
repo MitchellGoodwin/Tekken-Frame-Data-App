@@ -8,7 +8,7 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
     validates :password, presence: true
 
-    validates_uniqueness_of :user_id, :scope => :character_id
+    
 
     def pic
         if self.picture_link

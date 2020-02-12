@@ -31,6 +31,17 @@ table{
     width: 128px;
   }
 
+#BigImage{
+  display:flex;
+  height: 256px;
+  width: 256px;
+}
+
+#CharacterTitle {
+  display:flex;
+  flex-direction:column;
+}
+
   .columns {
     display:flex;
     flex: 0 0 33.333333%;

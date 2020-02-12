@@ -34,17 +34,29 @@
         <textarea class="textarea" name="bio" ><%= @user.bio %></textarea>
       </p>
     </div>
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
     <div class="buttons">
         <input type="submit" value="Submit" class="button is-danger is-outlined is-focused"><br>
-        <%# <%= link_to "Delete Account", user_path(@user), method: :delete, data: {confirm: "Are you sure?"}, :class => "button has-background-danger is-outlined is-focused is-pulled-right" %> 
     </div>
 <% end %>
 
 <% if @user.errors.any? %>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-    </ul>
+
+
+<section class="hero is-danger">
+  <div class="hero-body">
+    <div class="container" id="NoBackground">
+      <h1 class="title">
+        Error:
+      </h1>
+      <h2 class="subtitle">
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </h2>
+    </div>
+  </div>
+</section>
+    
 <% end %>

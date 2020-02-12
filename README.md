@@ -6,9 +6,25 @@ Hello, and welcome to my app. As a project to explore and practice Rails, I want
 
 I want to create a site for users to look up frame data for each character, with an attached forum to discuss the ins and outs, while also acting as a place to community build.
 
+## Technologies Used
+
+* Ruby on Rails
+* Bulma
+* API
+* CSS
+
+
+## Installiation
+
+* Clone the repo to your computer
+* Navigate to the directory and run `bundle install`
+* run `rails db:migrate` and `rails db:seed`. This should take a couple seconds. The api has to pull 8460 moves and 45 characters.
+* run `rails s`
+* The site should be live at http://localhost:3000/
+
 ## Schema
 
-My basic beginning schema is this:
+My model schema is this:
 
 A character <-> has many moves, that belong to a character
 
@@ -18,49 +34,35 @@ A forum has many <-> posts and a post belongs to a user
 
 A user has many <-> posts and a post belongs to a user
 
+A favorite belongs to a User, and a character
+
 ## User Stories
 
-My beginning user stories are:
+My basic user stories are:
 
-A user can look up characters and their moves
-A user can make posts on a forum related to a specific character
-A user can edit and delete their posts
-A user can read other posts
+* A user can look up characters and their moves
+* A user can make posts on a forum related to a specific character
+* A user can edit and delete their own posts
+* A user can read other user's posts, and look at those user's pages
+* A user can edit thier own page
+* A user can favorite a character and have a link to that character's page show up on thier page
 
-## Weekend Plan
+## Walkthrough of Site Functionality:
 
-My beginning plan is to: 
+The homepage for the app shows a welcome message, as well as login and signup buttons. The user can use either one to login, the signup will make a new user class for that user. After login, the site will redirect back to the page the user was on before. When seeing the home page while logged in, the user will see a message to them and a logout buttons.
 
-* create the models above, with help from an api for characters and moves. X
+At the top of the page, on the layout, there will always be buttons to the home page, character index page, and forum index pages. There are also login, signup, logout, and profile page buttons for the user depending on if they are logged in or not.
 
-* Add a show page for users, with a bio they can add
+The character index page has all the characters images laid out in a grid, with buttons with their names on it that are links to that individual character's show page.
 
-* Make a basic character index page with links X
-
-* Make character show pages with moves below each character X
-
-* Create basic forum show and index pages X
-
-* Make posts for the forum pages, with full crud functionality X
-
-* Add log-in, log-out, and sign-up functions and pages for users X
+The individual character's show page 
 
 ## Stretch Goals
 
 I'd honestly like to do a lot, here is what I have in mind. I'm prepared to not be able to do all these, but it would be neat to do.
 
-* Let users favorite characters. Links to their favorited characters will be on their show page.
-
 * Limit how many posts show up on a forum page. Add buttons to load the next or previous batch of however many.
 
 * Add search functionality for moves
 
-* Be able to tag moves in a post. That post would then have a link to that spot on the character's page.
-
-* Maybe add sub forums for users to create their own topics?
-
-* Let users highlight moves to show up on their show page with an optional message as a sort of to-do list. This would be moves they need to practice, or study counter play to. Example, highlighting kazuya's d+4 kick, with a message "Kazuya players seem to like doing this after a blocked jab". 
-
 * super fancy: Let users submit change requests for character pages/ move data. The admin would get an email about the request, and can see pending requests on an admin page. I need to research this. 
-
-* I'm looking into Bulma, and will likely try and use it for styling.
