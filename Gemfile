@@ -7,6 +7,7 @@ gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'rest-client'
 gem 'pry'
 gem 'bulma-rails'
+gem 'bcrypt'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'

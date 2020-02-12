@@ -12,6 +12,7 @@ I want to create a site for users to look up frame data for each character, with
 * Bulma
 * API
 * CSS
+* Bcrypt
 
 
 ## Installiation

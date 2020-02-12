@@ -15,7 +15,7 @@ require 'pry'
 puts "Making Users"
 
 40.times do
-    User.create(username: Faker::Internet.username, password: "test", location: Faker::Nation.capital_city, picture_link: Faker::Avatar.image, bio: Faker::Lorem.paragraph)
+    User.create(username: Faker::Internet.username, password_digest: "test", location: Faker::Nation.capital_city, picture_link: Faker::Avatar.image, bio: Faker::Lorem.paragraph)
 end
 
 

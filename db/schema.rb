@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_02_11_205454) do
     t.string "username"
     t.string "picture_link"
     t.string "location"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "bio"
