@@ -13,6 +13,7 @@ I want to create a site for users to look up frame data for each character, with
 * API
 * CSS
 * Bcrypt
+* Kaminari
 
 
 ## Installiation
@@ -47,6 +48,8 @@ My basic user stories are:
 * A user can read other user's posts, and look at those user's pages
 * A user can edit thier own page
 * A user can favorite a character and have a link to that character's page show up on thier page
+* A user can report another user's post
+* An admin user can see the reports, and delete users based off of them
 
 ## Walkthrough of Site Functionality:
 
@@ -87,7 +90,7 @@ The forum index page has all of the forums listed in lines. Each line has a link
 
 
 
-For the forum show pages, it displays the last ten posts made on that forum. If the user is logged in, the page has a form to make a new post on that forum at the bottom. A post cannot have more than 500 characters. If the logged in user has any posts on that page, they have a button to the right of that post to go to an edit form for that post.
+For the forum show pages, it displays the first five posts made on that forum. Buttons at the bottom of the page move the user forward and back through the posts. If the user is logged in, the page has a form to make a new post on that forum at the bottom. A post cannot have more than 500 characters. If the logged in user has any posts on that page, they have a button to the right of that post to go to an edit form for that post. A logged in user can also report a user. An email will be generated and then sent to the admin user. The admin user can then log in and see the reports on their page. That admin can approve and deny the requests to delete that user. And all of their associations.
 
 
 
@@ -115,6 +118,8 @@ On an individual user's profile page it shows their picture, their username, the
 * In extension to the above point, learning how to use forms without rails helper methods was a little difficult. But overall not too bad. Eventually I found out you can partially implement them with bulma styling so it was a small waste anyway, but that's how it is sometimes.
 
 * Getting comfortable with passing params and other information correctly when rails helper methods didn't explicitly do it for me. I definetly have everything working cleaner now than I did before. 
+
+* Adding pagination was easier than I expected it to be. However linking to a specif page for a posts with the way I had my forum routes set up took a while to figure out. I needed to make a pretty bulky helper method.
 
 ## Credits
 
