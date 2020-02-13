@@ -1,3 +1,4 @@
+<% flash.now[:post] = params[:flash_notice] if params[:flash_notice] %>
 <section class="hero is-warning">
   <div class="hero-body">
     <div class="container">
@@ -7,9 +8,12 @@
     </div>
   </div>
 </section>
-
 <% @forum.posts.last(10).each do |post| %>
-<article class="media has-text-white has-background-black is-paddingless is-marginless">
+<% if post.id == flash[:post].to_i%>
+  <article class="media has-text-black has-background-warning is-paddingless is-marginless">
+<% else %>
+  <article class="media has-text-white has-background-black is-paddingless is-marginless">
+<% end %>
   <figure class="media-left is-paddingless is-marginless" id="Profile">
     <p class="image" id="Image">
       <%= image_tag(post.user_pic) %>
@@ -36,6 +40,14 @@
     <% if post.user == current_user %>
         <%= link_to "Edit Post", edit_post_path(post), :class => "button has-background-danger is-outlined is-focused" %>
     <% end %>
+    <% if logged_in? && post.user != current_user%>
+      <%= link_to "Report User", new_report_path(post.id), :class => "button has-background-danger is-outlined is-focused" %>
+    <% end %>
+    <% if post.id == flash[:post_id] %>
+          <div id="Warning">
+            <%= flash[:success] %>
+          </div>
+        <% end %>
   </div>
 </article>
 <% end %>

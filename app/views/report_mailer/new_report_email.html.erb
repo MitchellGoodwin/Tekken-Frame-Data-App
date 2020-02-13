@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>ANOTHER INGRATE HAS BEEN REPORTED!</p>
+    <p>
+    DECIDE THE FATE OF: <%= @report.post.username %><br>
+    --------------------------
+    </p>
+    <p>
+    FOR HIS POST:<br>
+    ----------
+    </p>
+    <p><%= @report.post.content %></p><br>
+    <p>A MESSAGE FROM THE REPORTER:</p><br>
+    <%= @report.notes %><br><br>
+    <h1>GO FORTH AND DESTROY</h1>
+  </body>
+</html>

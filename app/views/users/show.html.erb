@@ -17,8 +17,6 @@
       </div>
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
-          <%# <p class="title">Middle tile</p> %>
-          <%# <p class="subtitle">With an image</p> %>
           <figure class="image" id="ProfileImage">
             <%= image_tag(@user.pic) %>
           </figure>
@@ -49,3 +47,46 @@
     </article>
   </div>
 </div>
+<% if admin?%>
+  <section class="hero is-warning">
+    <div class="hero-body">
+      <div class="container" id="NoBackground">
+        <h1 class="title">
+          Reported Posts:
+        </h1>
+        <h2 class="buttons">
+            <% @reports.all.each do |request| %>
+            <div class="box has-background-black has-text-white">
+              <article class="media">
+                <div class="media-left">
+                  <p class="image" id="Image">
+                    <%= image_tag(request.post.user_pic) %>
+                  </p>
+                </div>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong><%= request.post.username %></strong> 
+                      <br>
+                      <%= request.notes%>
+                    </p>
+                  </div>
+                <nav class="level is-mobile">
+                  <%= link_to "post", forum_path(request.post.forum, flash_notice: request.post.id), :class => "button has-background-danger is-outlined is-focused" %>
+                </nav>
+      </div>
+      <div class="media-right">
+                  <h2 >
+                    <%= button_to "Approve", ban_path(request.id), :class => "button has-background-danger is-outlined is-focused is-fullwidth"%>
+                    <%= button_to "Deny", report_path(request), method: :delete, :class => "button has-background-danger is-outlined is-focused is-fullwidth" %>
+                </h2>
+                </div>
+    </article>
+</div>
+              
+            <% end %>
+        </h2>
+      </div>
+    </div>
+  </section>
+<% end %>

@@ -8,6 +8,7 @@ gem 'rest-client'
 gem 'pry'
 gem 'bulma-rails'
 gem 'bcrypt'
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'

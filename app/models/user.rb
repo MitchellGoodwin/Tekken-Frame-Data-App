@@ -1,8 +1,9 @@
 class User < ApplicationRecord
-    has_many :posts
+    has_many :posts, dependent: :destroy
     has_many :forums, through: :posts
-    has_many :favorites
+    has_many :favorites, dependent: :destroy
     has_many :characters, through: :favorites
+    has_many :ban_requests, through: :posts
 
     validates :username, presence: true
     validates :username, uniqueness: true

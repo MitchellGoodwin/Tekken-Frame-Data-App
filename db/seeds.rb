@@ -15,9 +15,10 @@ require 'pry'
 puts "Making Users"
 
 40.times do
-    User.create(username: Faker::Internet.username, password_digest: "test", location: Faker::Nation.capital_city, picture_link: Faker::Avatar.image, bio: Faker::Lorem.paragraph)
+    User.create(username: Faker::Internet.username, password: "test", password_confirmation: "test", location: Faker::Nation.capital_city, picture_link: Faker::Avatar.image, bio: Faker::Lorem.paragraph, admin: false)
 end
 
+User.create(username: "Admin", password: "password", password_confirmation: "password", location: Faker::Nation.capital_city, picture_link: Faker::Avatar.image, bio: Faker::Lorem.paragraph, admin: true)
 
 puts "Getting API data"
 response = RestClient.get("https://t7frames-server.herokuapp.com/frame-data/")
@@ -29,7 +30,7 @@ puts "Making characters and moves..."
 tekken.each do |key, character|
     ch = Character.create(name: character["character"])
     character["moves"].each do |move|
-        nm = Move.create(move.transform_keys! &:downcase)
+        nm = Move.new(move.transform_keys! &:downcase)
         nm.character_id = ch.id
         nm.save
     end
