@@ -77,7 +77,7 @@
       </div>
       <div class="media-right">
                   <h2 >
-                    <%= button_to "Approve", ban_path(request.id), :class => "button has-background-danger is-outlined is-focused is-fullwidth"%>
+                    <%= button_to "Approve", ban_path(id: request.id), method: :delete, :class => "button has-background-danger is-outlined is-focused is-fullwidth"%>
                     <%= button_to "Deny", report_path(request), method: :delete, :class => "button has-background-danger is-outlined is-focused is-fullwidth" %>
                 </h2>
                 </div>

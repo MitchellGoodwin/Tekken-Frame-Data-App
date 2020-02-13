@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
     end
 
     def create
-        @report = Report.new(params.require(:report).permit(:notes))
+        @report = Report.new(params.permit(:notes))
         @report.post = Post.find(params[:post_id])
         @report.save
         flash[:success] = "USER REPORTED!"
@@ -21,7 +21,7 @@ class ReportsController < ApplicationController
     end
 
     def approve
-        @report = Report.find(params[:format])
+        @report = Report.find(params[:id])
         @report.post.user.destroy
         @report.destroy
         redirect_to user_path(current_user)

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
-  post '/ban' => 'reports#approve'
+  delete '/ban' => 'reports#approve'
   
   resources :posts, only: [:edit, :create, :update, :destroy]
   resources :forums, only: [:index, :show]

@@ -40,8 +40,8 @@
     <% if post.user == current_user %>
         <%= link_to "Edit Post", edit_post_path(post), :class => "button has-background-danger is-outlined is-focused" %>
     <% end %>
-    <% if logged_in? && post.user != current_user%>
-      <%= link_to "Report User", new_report_path(post.id), :class => "button has-background-danger is-outlined is-focused" %>
+    <% if logged_in? && post.user != current_user && !post.user.admin%>
+      <%= link_to "Report User", new_report_path(post_id: post.id), :class => "button has-background-danger is-outlined is-focused" %>
     <% end %>
     <% if post.id == flash[:post_id] %>
           <div id="Warning">

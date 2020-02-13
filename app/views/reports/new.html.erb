@@ -1,6 +1,23 @@
-<%= form_for @report do |f| %>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-    <%= hidden_field_tag :post_id, params[:format]%>
-    <%= f.submit %>
-<% end %>
+<article class="media">
+  <div class="media-content">
+  <%= form_for @report do |f| %>
+    <div class="field">
+      <p class="control">
+        <%= f.label "Notes for Admin:" %>
+        <textarea class="textarea has-text-white has-background-black" name="notes"></textarea>
+      </p>
+    </div>
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+            <%= hidden_field_tag :post_id, params[:post_id]%>
+            <div class="buttons">
+                <input type="submit" value="Submit" class="button is-danger is-outlined is-focused"><br>
+            </div>
+        </div>
+      </div>
+    </nav>
+  <% end %>
+  </div>
+</article>
