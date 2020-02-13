@@ -72,7 +72,7 @@
                     </p>
                   </div>
                 <nav class="level is-mobile">
-                  <%= link_to "post", forum_path(request.post.forum, flash_notice: request.post.id), :class => "button has-background-danger is-outlined is-focused" %>
+                  <%= link_to "post", forum_path(request.post.forum, flash_notice: request.post.id, page: request.post.page), :class => "button has-background-danger is-outlined is-focused" %>
                 </nav>
       </div>
       <div class="media-right">

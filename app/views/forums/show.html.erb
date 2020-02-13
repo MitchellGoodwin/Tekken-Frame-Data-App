@@ -8,7 +8,7 @@
     </div>
   </div>
 </section>
-<% @forum.posts.last(10).each do |post| %>
+<% @posts.each do |post| %>
 <% if post.id == flash[:post].to_i%>
   <article class="media has-text-black has-background-warning is-paddingless is-marginless">
 <% else %>
@@ -105,4 +105,5 @@
       </div>
     </div>
   </section>
-<% end %>
+<% end %> <br>
+<%= paginate @posts %>

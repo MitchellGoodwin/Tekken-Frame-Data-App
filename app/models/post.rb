@@ -2,6 +2,8 @@ class Post < ApplicationRecord
     belongs_to :forum
     belongs_to :user
 
+    paginates_per 5
+
     validates :content, length: { maximum: 500 }
 
 
@@ -9,6 +11,13 @@ class Post < ApplicationRecord
         user.username
     end
 
+    def self.size
+        Post.all.size
+    end
+
+    def page
+        ((forum.posts.all.reverse.find_index(self) + 1)/5) + 1
+    end
 
     def user_pic
         user.pic

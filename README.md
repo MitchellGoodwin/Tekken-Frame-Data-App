@@ -108,28 +108,13 @@ On an individual user's profile page it shows their picture, their username, the
 
 
 
-## Code Examples
-
-
-
-
-
 ## Difficulties
 
 * Learning Bulma, and by extension css, was a challenge for me, as I've had no real previous experience in either before this project and had to learn on my own. I'm happy with how it turned out for a first try, and I feel much more comfortable with both technologies. There's still some things I wish could be better about my styling, and if there's a convention to stick to, I did not follow it at all.
 
 * In extension to the above point, learning how to use forms without rails helper methods was a little difficult. But overall not too bad. Eventually I found out you can partially implement them with bulma styling so it was a small waste anyway, but that's how it is sometimes.
 
-
-## Stretch Goals
-
-I'd honestly like to do a lot, here is what I have in mind. I'm prepared to not be able to do all these, but it would be neat to do.
-
-* Limit how many posts show up on a forum page. Add buttons to load the next or previous batch of however many.
-
-* Add search functionality for moves
-
-* super fancy: Let users submit change requests for character pages/ move data. The admin would get an email about the request, and can see pending requests on an admin page. I need to research this. 
+* Getting comfortable with passing params and other information correctly when rails helper methods didn't explicitly do it for me. I definetly have everything working cleaner now than I did before. 
 
 ## Credits
 

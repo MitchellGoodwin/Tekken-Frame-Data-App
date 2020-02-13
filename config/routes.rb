@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   delete '/ban' => 'reports#approve'
   
   resources :posts, only: [:edit, :create, :update, :destroy]
-  resources :forums, only: [:index, :show]
+  resources :forums, only: [:index, :show] do
+    get 'page/:page', action: :show, on: :collection
+  end
   resources :characters, only: [:show, :index]
   resources :users, only: [:new, :create, :show, :edit, :update]
   resources :favorites, only: [:create, :destroy]

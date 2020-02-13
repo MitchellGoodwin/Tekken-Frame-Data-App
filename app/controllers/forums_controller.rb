@@ -6,6 +6,7 @@ class ForumsController < ApplicationController
 
     def show
         @forum = Forum.find(params[:id])
+        @posts = @forum.posts.order(created_at: :desc).page(params[:page])
         @post = Post.new
     end
 end
