@@ -18,7 +18,7 @@
     <p class="image" id="Image">
       <%= image_tag(post.user_pic) %>
     </p>
-    <p><%= "Location: #{post.user_location}" %>
+    <p id="location"><%= "Location: #{post.user_location}" %></p>
   </figure>
   <div class="media-content is-marginless" id="ContentBox">
     <div class="content">
@@ -78,7 +78,7 @@
   </div>
 </article>
 <% else %>
-    <section class="hero is-success">
+    <section class="hero is-success is-marginless is-paddingless is-marginless">
         <div class="hero-body">
             <div class="container">
             <h1 class="title has-background-success is-bold">
