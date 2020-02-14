@@ -17,7 +17,7 @@ class Post < ApplicationRecord
     end
 
     def page
-        ((forum.posts.all.reverse.find_index(self) + 1)/5) + 1
+        ((forum.posts.all.find_index(self) + 1)/5) + 1
     end
 
     def user_pic
