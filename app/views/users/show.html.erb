@@ -47,7 +47,7 @@
     </article>
   </div>
 </div>
-<% if admin?%>
+<% if admin? && @user == current_user%>
   <section class="hero is-warning">
     <div class="hero-body">
       <div class="container" id="NoBackground">
