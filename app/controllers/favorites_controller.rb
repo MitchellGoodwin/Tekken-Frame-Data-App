@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
     
     def create
-        Favorite.create(user_id: session[:user_id], character_id: session[:character_id])
+        Favorite.create(user_id: session[:user_id], character_id: params[:character_id])
         redirect_to request.referer
     end
 
